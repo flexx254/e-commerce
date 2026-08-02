@@ -137,3 +137,67 @@ searchInput.addEventListener("keyup", function () {
 displayProducts();
 
 updateCartCount();
+
+
+// ======================
+// HERO SLIDER
+// ======================
+
+const slides = document.querySelectorAll(".slide");
+const dots = document.querySelectorAll(".dot");
+
+let currentSlide = 0;
+
+function showSlide(index){
+
+    slides.forEach(slide=>slide.classList.remove("active"));
+
+    dots.forEach(dot=>dot.classList.remove("active"));
+
+    slides[index].classList.add("active");
+
+    dots[index].classList.add("active");
+
+}
+
+document.querySelector(".next").onclick=function(){
+
+    currentSlide++;
+
+    if(currentSlide>=slides.length){
+
+        currentSlide=0;
+
+    }
+
+    showSlide(currentSlide);
+
+}
+
+document.querySelector(".prev").onclick=function(){
+
+    currentSlide--;
+
+    if(currentSlide<0){
+
+        currentSlide=slides.length-1;
+
+    }
+
+    showSlide(currentSlide);
+
+}
+
+setInterval(function(){
+
+    currentSlide++;
+
+    if(currentSlide>=slides.length){
+
+        currentSlide=0;
+
+    }
+
+    showSlide(currentSlide);
+
+},5000);
