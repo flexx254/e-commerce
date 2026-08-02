@@ -486,9 +486,14 @@ footer{
 }
 
 .slide-text{
+    flex:1;
+    max-width:550px;
+}
 
-    max-width:45%;
-
+.slide-image{
+    flex:1;
+    display:flex;
+    justify-content:center;
 }
 
 .slide-text h1{
